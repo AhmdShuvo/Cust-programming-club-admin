@@ -11,6 +11,11 @@ import Dashboard from './Components/Dashboard/Dashboard';
 import MakeAdmin from './Components/Dashboard/Make Admin/MakeAdmin';
 import PostEvent from './Components/Dashboard/Events/PostEvent';
 import NotFound from './Pages/NotFound/NotFound';
+import DeleteEvents from './Components/Dashboard/DeleteEvents/DeleteEvents';
+import Blogs from './Components/Dashboard/ManageBlogs/Blogs';
+import Notice from './Components/Dashboard/PostNotice/Notice';
+import DashboardHome from './Components/Dashboard/DashboardHome/DashboardHome';
+import UpcommingEvents from './Components/Dashboard/Events/UpcommingEvents';
 
 
 
@@ -23,8 +28,13 @@ const App = () => {
 
     <Route path='/'
             element={<Dashboard />}>
+              <Route path='/' element={<DashboardHome></DashboardHome>}></Route>
            <Route path='makeAdmin' element={<MakeAdmin />}></Route>
            <Route path='postevents' element={<PostEvent />}></Route>
+           <Route path='commingevents' element={<UpcommingEvents />}></Route>
+           <Route path='deleteevents' element={<DeleteEvents/>} />
+           <Route path='manageblogs' element={<Blogs/>} />
+           <Route path='notice' element={<Notice/>} />
             {/* <Route path='manage' element={<ManageOrders />} />
             <Route path='all' element={<AllGames />} />
             <Route path='addReview' element={<AddReview />}></Route>
@@ -35,6 +45,7 @@ const App = () => {
            
           </Route>
       <Route path='login' element={<SignInSide/>} />
+     
      <Route path="*" element={<NotFound/>}></Route>
     </Routes>
   </BrowserRouter>

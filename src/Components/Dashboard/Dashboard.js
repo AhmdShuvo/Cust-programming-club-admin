@@ -16,9 +16,12 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
+
 import { Link, Outlet } from 'react-router-dom';
+import { AdminPanelSettingsRounded, DeleteOutlineRounded, HomeSharp, ManageAccountsOutlined, ManageHistory, PostAddOutlined } from '@mui/icons-material';
+import { Container } from '@mui/system';
+import DashboardHome from './DashboardHome/DashboardHome';
+
 
 const drawerWidth = 240;
 
@@ -118,60 +121,89 @@ export default function Dashboard() {
         </DrawerHeader>
         <Divider />
         <List>
-         
-        <Link style={{textDecoration:"none",color:'black'}} to='/dashboard'>
-            <ListItem  disablePadding>
-           
+
+          <Link style={{ textDecoration: "none", color: 'black' }} to='/'>
+            <ListItem disablePadding>
+
               <ListItemButton >
                 <ListItemIcon>
-                  <MailIcon />
+                  <HomeSharp />
                 </ListItemIcon>
                 <ListItemText primary="Home" />
               </ListItemButton>
-             
+
             </ListItem>
-            </Link>
+          </Link>
         </List>
         <Divider />
         <List>
-        
-            <Link style={{textDecoration:"none",color:'black'}} to='makeAdmin'>
-            <ListItem   disablePadding>
+
+          <Link style={{ textDecoration: "none", color: 'black' }} to='makeAdmin'>
+            <ListItem disablePadding>
               <ListItemButton>
                 <ListItemIcon>
-                 <MailIcon />
+                  <AdminPanelSettingsRounded />
                 </ListItemIcon>
-                <ListItemText  primary="Make Admin"/>
+                <ListItemText primary="Make Admin" />
               </ListItemButton>
             </ListItem>
-            </Link>
-            <Link style={{textDecoration:"none",color:'black'}} to='postevents'>
-            <ListItem   disablePadding>
+          </Link>
+          <Link style={{ textDecoration: "none", color: 'black' }} to='postevents'>
+            <ListItem disablePadding>
               <ListItemButton>
                 <ListItemIcon>
-                 <MailIcon />
+                  <PostAddOutlined />
                 </ListItemIcon>
-                <ListItemText  primary="Post Events"/>
+                <ListItemText primary="Current Events" />
               </ListItemButton>
             </ListItem>
-            </Link>
-            <Link style={{textDecoration:"none",color:'black'}} to='deleteevents'>
-            <ListItem   disablePadding>
+          </Link>
+          <Link style={{ textDecoration: "none", color: 'black' }} to='commingevents'>
+            <ListItem disablePadding>
               <ListItemButton>
                 <ListItemIcon>
-                 <MailIcon />
+                  <PostAddOutlined />
                 </ListItemIcon>
-                <ListItemText  primary="Delete Events"/>
+                <ListItemText primary="Comming Events" />
               </ListItemButton>
             </ListItem>
-            </Link>
-         
+          </Link>
+          <Link style={{ textDecoration: "none", color: 'black' }} to='deleteevents'>
+            <ListItem disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  <DeleteOutlineRounded />
+                </ListItemIcon>
+                <ListItemText primary="Delete Events" />
+              </ListItemButton>
+            </ListItem>
+          </Link>
+          <Link style={{ textDecoration: "none", color: 'black' }} to='manageblogs'>
+            <ListItem disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  <ManageHistory />
+                </ListItemIcon>
+                <ListItemText primary="Manage Blogs " />
+              </ListItemButton>
+            </ListItem>
+          </Link>
+          <Link style={{ textDecoration: "none", color: 'black' }} to='notice'>
+            <ListItem disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  <ManageHistory />
+                </ListItemIcon>
+                <ListItemText primary="Post a Notice" />
+              </ListItemButton>
+            </ListItem>
+          </Link>
+
         </List>
       </Drawer>
       <Main open={open}>
         <DrawerHeader />
-   
-
+     
         <Outlet></Outlet>
       </Main>
     </Box>
