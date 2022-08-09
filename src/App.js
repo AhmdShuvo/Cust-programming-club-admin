@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
-import PersistentDrawerLeft from './Components/Dashboard/Dashboard';
 import {
   BrowserRouter,
   Routes,
   Route,
-  Link,
+
 } from "react-router-dom";
 import SignInSide from './Pages/Login/Login';
 import Dashboard from './Components/Dashboard/Dashboard';
 import MakeAdmin from './Components/Dashboard/Make Admin/MakeAdmin';
-import PostEvent from './Components/Dashboard/Events/PostEvent';
+import PostEvent from './Components/Dashboard/Events/CurrentEvents';
 import NotFound from './Pages/NotFound/NotFound';
 import DeleteEvents from './Components/Dashboard/DeleteEvents/DeleteEvents';
 import Blogs from './Components/Dashboard/ManageBlogs/Blogs';
@@ -30,8 +29,8 @@ const App = () => {
             element={<Dashboard />}>
               <Route path='/' element={<DashboardHome></DashboardHome>}></Route>
            <Route path='makeAdmin' element={<MakeAdmin />}></Route>
-           <Route path='postevents' element={<PostEvent />}></Route>
-           <Route path='commingevents' element={<UpcommingEvents />}></Route>
+           <Route path='currentevents' element={<PostEvent />}></Route>
+           <Route path='comingevents' element={<UpcommingEvents />}></Route>
            <Route path='deleteevents' element={<DeleteEvents/>} />
            <Route path='manageblogs' element={<Blogs/>} />
            <Route path='notice' element={<Notice/>} />

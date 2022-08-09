@@ -7,10 +7,10 @@ const Login = () => {
          <div className='form-container'>
             <form className='form'>
   <h3>Login Here</h3>
-  <label htmlFor="username">Username</label>
-  <input className='input' type="text" placeholder="Email or Phone" id="username" />
+  <label htmlFor="email">Email Address</label>
+  <input className='input' type="email" name='email' placeholder="Email Address" id="email" />
   <label htmlFor="password">Password</label>
-  <input className='input' type="password" placeholder="Password" id="password" />
+  <input className='input' name='password' type="password" placeholder="Password" id="password" />
   <button className='btn'>Log In</button>
 
 </form>

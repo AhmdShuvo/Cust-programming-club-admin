@@ -8,7 +8,7 @@ const DeleteEvents = () => {
 
     const [events,setEvent]=useState([])
     useEffect(()=>{
-fetch('http://localhost:9000/currentevents').then(res=>res.json()).then(data=>setEvent(data))
+fetch('https://desolate-headland-20264.herokuapp.com/currentevents').then(res=>res.json()).then(data=>setEvent(data))
     },[])
 
     const handleDelete=id=>{
@@ -16,7 +16,7 @@ fetch('http://localhost:9000/currentevents').then(res=>res.json()).then(data=>se
 
         const proceed = window.confirm('Are you sure you want to delete?');
           if (proceed === true) {
-            const url = `http://localhost:9000/currentevents/${id}`;
+            const url = `https://desolate-headland-20264.herokuapp.com/currentevents/${id}`;
             fetch(url, {
               method: 'DELETE',
             })
@@ -38,7 +38,7 @@ fetch('http://localhost:9000/currentevents').then(res=>res.json()).then(data=>se
         console.log(events);
 
 
-        // fetch(`http://localhost:9000/currentevents/${id}`, {
+        // fetch(`https://desolate-headland-20264.herokuapp.com/currentevents/${id}`, {
         //     method: 'DELETE',
         // }).then(response => response.json()).then(result=>console.log(result));
     return (

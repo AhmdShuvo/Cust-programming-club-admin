@@ -148,7 +148,7 @@ export default function Dashboard() {
               </ListItemButton>
             </ListItem>
           </Link>
-          <Link style={{ textDecoration: "none", color: 'black' }} to='postevents'>
+          <Link style={{ textDecoration: "none", color: 'black' }} to='currentevents'>
             <ListItem disablePadding>
               <ListItemButton>
                 <ListItemIcon>
@@ -158,7 +158,7 @@ export default function Dashboard() {
               </ListItemButton>
             </ListItem>
           </Link>
-          <Link style={{ textDecoration: "none", color: 'black' }} to='commingevents'>
+          <Link style={{ textDecoration: "none", color: 'black' }} to='comingevents'>
             <ListItem disablePadding>
               <ListItemButton>
                 <ListItemIcon>
