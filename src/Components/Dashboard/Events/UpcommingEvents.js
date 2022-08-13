@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 
 const UpcommingEvents = () => {
 
-    const [image, setimage] = useState([]);
+    // const [image, setimage] = useState([]);
     const [imagefile, setFile] = useState('')
     const [eventData, setData] = useState({});
 

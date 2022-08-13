@@ -1,14 +1,14 @@
-import { Label, PhotoCamera } from '@mui/icons-material';
+import { PhotoCamera } from '@mui/icons-material';
 import { Button, List, ListItem, TextareaAutosize, TextField, } from '@mui/material';
 import { Box, Container } from '@mui/system';
-import React, { useEffect, useState } from 'react';
+import React, {  useState } from 'react';
 
-import FileBase64 from 'react-file-base64';
+// import FileBase64 from 'react-file-base64';
 
 
 const PostEvent = () => {
 
-    const [image,setimage]=useState([]);
+    // const [image,setimage]=useState([]);
     const [imagefile, setFile] = useState('')
     const [eventData, setData] = useState({});
 
