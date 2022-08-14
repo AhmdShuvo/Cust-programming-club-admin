@@ -13,7 +13,7 @@ fetch('https://desolate-headland-20264.herokuapp.com/currentevents').then(res=>r
     },[])
 
     const handleDelete=id=>{
-        // console.log(id);
+       
 
         const proceed = window.confirm('Are you sure you want to delete?');
           if (proceed === true) {
@@ -36,7 +36,7 @@ fetch('https://desolate-headland-20264.herokuapp.com/currentevents').then(res=>r
           }
         };
 
-        console.log(events);
+        
 
 
         // fetch(`https://desolate-headland-20264.herokuapp.com/currentevents/${id}`, {
@@ -51,7 +51,6 @@ fetch('https://desolate-headland-20264.herokuapp.com/currentevents').then(res=>r
 events.map(event=><div>
     <h1>{event.title}</h1>
     <p>{event.description}</p>
-     {console.log(event.image)}
 <p>{event.time}</p>
     <img alt='' width="200px" src={`data:image/png;base64,${event.image}`}></img>
     <Button onClick={()=>handleDelete(event._id)}><DeleteIcon></DeleteIcon></Button>

@@ -1,23 +1,70 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import useAuth from '../../Components/Hooks/useAuth';
+import RedAlert from '../../Components/RedAlert/RedAlert';
 import './login.css'
 
 const Login = () => {
-    return (
-       <section className='body'>
+   const { Login, setIsLoadng, GoogleLogin, saveGoogleUsertoDb } = useAuth()
+
+   const [logInData, setData] = useState({})
+   const [error, setError] = useState('')
+
+   const location = useLocation()
+   const history = useNavigate()
+   const url = '/'
+
+
+
+   const handleChange = e => {
+      const field = e.target.name
+      const value = e.target.value
+      const newLogindata = { ...logInData }
+      newLogindata[field] = value;
+      setData(newLogindata)
+
+
+   }
+
+   const handleLogin = e => {
+      e.preventDefault()
+
+      Login(logInData.email, logInData.password).then((userCredential) => {
+         // Signed in 
+         setIsLoadng(false);
+         const user = userCredential.user;
+         history(url)
+
+         // ...
+      })
+         .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            setError(errorMessage)
+            console.log(errorMessage);
+         }).finally(() => {
+
+
+         });
+   }
+
+   return (
+      <section className='body'>
          <div className='form-container'>
-            <form className='form'>
-  <h3>Login Here</h3>
-  <label htmlFor="email">Email Address</label>
-  <input className='input' type="email" name='email' placeholder="Email Address" id="email" />
-  <label htmlFor="password">Password</label>
-  <input className='input' name='password' type="password" placeholder="Password" id="password" />
-  <button className='btn'>Log In</button>
+            <form className='form' onSubmit={handleLogin}>
 
-</form>
-
-        </div>
-       </section>
-    );
+               <h3>Login Here</h3>
+               <label htmlFor="email">Email Address</label>
+               <input className='input' type="email" onChange={handleChange} name='email' placeholder="Email Address" id="email" />
+               <label htmlFor="password">Password</label>
+               <input className='input' name='password' type="password" onChange={handleChange} placeholder="Password" id="password" />
+               <button type='submit' className='btn'>Log In</button>
+{error&& <RedAlert message={error}></RedAlert>}
+            </form>
+<button onClick={GoogleLogin}>google login</button>
+         </div>
+      </section>
+   );
 };
 
 export default Login;

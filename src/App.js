@@ -15,13 +15,15 @@ import Blogs from './Components/Dashboard/ManageBlogs/Blogs';
 import Notice from './Components/Dashboard/PostNotice/Notice';
 import DashboardHome from './Components/Dashboard/DashboardHome/DashboardHome';
 import UpcommingEvents from './Components/Dashboard/Events/UpcommingEvents';
+import AuthProvider, { AuthContext } from './Components/Contexts/AuthProvider';
 
 
 
 const App = () => {
 
   return (
-    <BrowserRouter>
+   <AuthProvider>
+     <BrowserRouter>
     <Routes>
   
 
@@ -34,13 +36,6 @@ const App = () => {
            <Route path='deleteevents' element={<DeleteEvents/>} />
            <Route path='manageblogs' element={<Blogs/>} />
            <Route path='notice' element={<Notice/>} />
-            {/* <Route path='manage' element={<ManageOrders />} />
-            <Route path='all' element={<AllGames />} />
-            <Route path='addReview' element={<AddReview />}></Route>
-            <Route path='orders' element={<Myorders />}></Route>
-            <Route path='newproduct' element={<AddNew />}></Route>
-           
-            <Route path='orders/payment/:productId' element={<Payment />}></Route> */}
            
           </Route>
       <Route path='login' element={<SignInSide/>} />
@@ -48,6 +43,7 @@ const App = () => {
      <Route path="*" element={<NotFound/>}></Route>
     </Routes>
   </BrowserRouter>
+   </AuthProvider>
   );
 };
 

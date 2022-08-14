@@ -60,7 +60,8 @@ const PostEvent = () => {
                             {/* Event Name Feild  */}
                             <ListItem>
                                 <TextField
-                                style={{color:'white'}}
+                                 aria-label="minimum height"
+                                style={{color:'white',}}
                                     name='eventTitle'
                                     required
                                     id="standard-required"
@@ -107,7 +108,7 @@ const PostEvent = () => {
                         <Button
                         style={{marginLeft:"12px"}}
                             type='submit'
-                            variant='outlined'
+                            variant='contained'
                         >Post Event </Button>
 
                     </form>

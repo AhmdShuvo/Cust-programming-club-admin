@@ -26,15 +26,17 @@ const UpcommingEvents = () => {
         formData.append('image', imagefile);
         formData.append('time', eventData.date);
         formData.append('description', eventData.eventDeails);
-        console.log(formData);
-        console.log(imagefile);
+        
 
         fetch('https://desolate-headland-20264.herokuapp.com/commingevents', {
+            headers: {
+                'Content-Type': 'application/json'
+              },
             method: 'POST',
             body: formData
         }).then((response) => response.json())
             .then((result) => {
-                console.log('Success:', result);
+            
 
             })
             .catch((error) => {
