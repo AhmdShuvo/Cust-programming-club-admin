@@ -19,7 +19,7 @@ const handleSubmit=e=>{
 const formData=new FormData();
 formData.append('notice',notice);
   e.preventDefault()
-  fetch("http://localhost:9000/notice",{
+  fetch("https://desolate-headland-20264.herokuapp.com/notice",{
          
               method:"POST",headers:{"content-type":'application/json'},
               body:JSON.stringify(notice)
