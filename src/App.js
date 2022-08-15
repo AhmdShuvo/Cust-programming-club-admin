@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   BrowserRouter,
   Routes,
@@ -25,8 +25,6 @@ const App = () => {
    <AuthProvider>
      <BrowserRouter>
     <Routes>
-  
-
     <Route path='/'
             element={<Dashboard />}>
               <Route path='/' element={<DashboardHome></DashboardHome>}></Route>
