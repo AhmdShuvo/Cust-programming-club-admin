@@ -61,7 +61,6 @@ const Login = () => {
                <button type='submit' className='btn'>Log In</button>
 {error&& <RedAlert message={error}></RedAlert>}
             </form>
-<button onClick={GoogleLogin}>google login</button>
          </div>
       </section>
    );
