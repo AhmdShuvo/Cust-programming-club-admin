@@ -5,7 +5,7 @@ import RedAlert from '../../Components/RedAlert/RedAlert';
 import './login.css'
 
 const Login = () => {
-   const { Login, setIsLoadng, GoogleLogin, saveGoogleUsertoDb } = useAuth()
+   const { Login, setIsLoadng,admin,user,LogOUt } = useAuth()
 
    const [logInData, setData] = useState({})
    const [error, setError] = useState('')
@@ -13,8 +13,6 @@ const Login = () => {
    const location = useLocation()
    const history = useNavigate()
    const url = '/'
-
-
 
    const handleChange = e => {
       const field = e.target.name
@@ -51,11 +49,14 @@ const Login = () => {
    return (
       <section className='body'>
          <div className='form-container'>
-            <form className='form' onSubmit={handleLogin}>
 
+          
+            <form className='form' onSubmit={handleLogin}>
+                   
                <h3>Login Here</h3>
+            
                <label htmlFor="email">Email Address</label>
-               <input className='input' type="email" onChange={handleChange} name='email' placeholder="Email Address" id="email" />
+               <input className='input' type="email" pattern='[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+.(edu)+.(bd)' onChange={handleChange} name='email' placeholder="Email Address" id="email" />
                <label htmlFor="password">Password</label>
                <input className='input' name='password' type="password" onChange={handleChange} placeholder="Password" id="password" />
                <button type='submit' className='btn'>Log In</button>

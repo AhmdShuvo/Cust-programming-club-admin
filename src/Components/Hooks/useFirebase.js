@@ -17,49 +17,8 @@ const useFirebase=()=>{
     const [user,setUser]=useState({})
     const auth=getAuth();
 
-    const googleProvider=new GoogleAuthProvider()
 
 
-
-
-      
-     
-    const GoogleLogin=()=>{
-
-      return signInWithPopup(auth,googleProvider)
-    }
-
-    // create User ////
-   const register=(email,password,name)=>{
-       createUserWithEmailAndPassword(auth,email,password).then((userCredential) => {
-        // Signed in 
-        const user = userCredential.user;
-        const newUser={email,displayName:name}
-        setUser(newUser)
-
-        // UPdate user In FIrebse //
-        updateProfile(auth.currentUser, {
-          displayName: name
-        }).then(() => {
-          // Profile updated!
-          // ...
-        }).catch((error) => {
-          // An error occurred
-          // ...
-        });
-       
-      
-        // ...
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        
-        // ..
-      })
-
-
-}
 
 // LogOUt User //
 
@@ -87,7 +46,7 @@ const Login=(email,password)=>{
 
 useEffect(()=>{
 
-  fetch(`https://desolate-headland-20264.herokuapp.com/user/admin/${user.email}`).then(res=>res.json()).then(data=>setIsAdmin(data.admin))
+  fetch(`http://localhost:9000/user/admin/${user.email}`).then(res=>res.json()).then(data=>setIsAdmin(data.admin))
 
 },[user.email])
  
@@ -113,31 +72,10 @@ useEffect(()=>{
 },[])
 
 
-const saveUsertoDb=(email,displayName)=>{
 
-  const user={email,displayName};
-
-  fetch('https://desolate-headland-20264.herokuapp.com/users',{
-    method:'POST',
-    headers:{ "content-type": 'application/json'},
-           body:JSON.stringify(user)
-
-  })
-}
-const saveGoogleUsertoDb=(email,displayName)=>{
-
-  const user={email,displayName};
-
-  fetch('https://secret-scrubland-96036.herokuapp.com/users',{
-    method:'POST',
-    headers:{ "content-type": 'application/json'},
-           body:JSON.stringify(user)
-
-  }).then(res=>res.json()).then(data=>console.log(data))
-}
      
 
-    return {user,register,LogOUt,Login,error,setError,isLoading,setIsLoadng,GoogleLogin,saveUsertoDb,saveGoogleUsertoDb,admin}
+    return {user,LogOUt,Login,error,setError,isLoading,setIsLoadng,admin}
 }
 
 

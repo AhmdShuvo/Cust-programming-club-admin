@@ -21,6 +21,7 @@ import { Link, Outlet } from 'react-router-dom';
 import { AdminPanelSettingsRounded, DeleteOutlineRounded, HomeSharp, ManageAccountsOutlined, ManageHistory, PostAddOutlined } from '@mui/icons-material';
 import { Container } from '@mui/system';
 import DashboardHome from './DashboardHome/DashboardHome';
+import useAuth from '../Hooks/useAuth';
 
 
 const drawerWidth = 240;
@@ -71,6 +72,9 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 }));
 
 export default function Dashboard() {
+
+  const {user,logOUt}=useAuth()
+  console.log(user.email);
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -195,6 +199,16 @@ export default function Dashboard() {
                   <ManageHistory />
                 </ListItemIcon>
                 <ListItemText primary="Post a Notice" />
+              </ListItemButton>
+            </ListItem>
+          </Link>
+    <Link style={{ textDecoration: "none", color: 'black' }} to='login'>
+            <ListItem disablePadding>
+              <ListItemButton onClick={logOUt}>
+                <ListItemIcon>
+                  <ManageHistory />
+                </ListItemIcon>
+                <ListItemText primary="Logout" />
               </ListItemButton>
             </ListItem>
           </Link>
