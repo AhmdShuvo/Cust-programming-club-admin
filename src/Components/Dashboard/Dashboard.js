@@ -212,6 +212,16 @@ export default function Dashboard() {
               </ListItemButton>
             </ListItem>
           </Link>
+          <Link style={{ textDecoration: "none", color: 'black' }} to='notice/delete'>
+            <ListItem disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  <ManageHistory />
+                </ListItemIcon>
+                <ListItemText primary="Delete Notice" />
+              </ListItemButton>
+            </ListItem>
+          </Link>
     <Link style={{ textDecoration: "none", color: 'black' }} to='login'>
             <ListItem disablePadding>
               <ListItemButton onClick={LogOUt}>

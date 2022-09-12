@@ -5,21 +5,17 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import DeleteIcon from '@mui/icons-material/Delete';
 import Paper from '@mui/material/Paper';
 import { Button } from '@mui/material';
 import BeenhereIcon from '@mui/icons-material/Beenhere';
 import HowToRegIcon from '@mui/icons-material/HowToReg';
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
 
 
 
 export default function Pending() {
   const [rows,setRows]=React.useState([])
-  const [success, setSuccess] = React.useState();
+  
 
 
   React.useEffect(()=>{
