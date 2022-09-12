@@ -73,8 +73,8 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 
 export default function Dashboard() {
 
-  const {user,logOUt}=useAuth()
-  console.log(user.email);
+  const {user,LogOUt}=useAuth()
+
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -192,6 +192,16 @@ export default function Dashboard() {
               </ListItemButton>
             </ListItem>
           </Link>
+          <Link style={{ textDecoration: "none", color: 'black' }} to='applications'>
+            <ListItem disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  <ManageHistory />
+                </ListItemIcon>
+                <ListItemText primary="applications" />
+              </ListItemButton>
+            </ListItem>
+          </Link>
           <Link style={{ textDecoration: "none", color: 'black' }} to='notice'>
             <ListItem disablePadding>
               <ListItemButton>
@@ -204,11 +214,11 @@ export default function Dashboard() {
           </Link>
     <Link style={{ textDecoration: "none", color: 'black' }} to='login'>
             <ListItem disablePadding>
-              <ListItemButton onClick={logOUt}>
+              <ListItemButton onClick={LogOUt}>
                 <ListItemIcon>
                   <ManageHistory />
                 </ListItemIcon>
-                <ListItemText primary="Logout" />
+                <ListItemText primary={user.email?"Logout":"Login"} />
               </ListItemButton>
             </ListItem>
           </Link>

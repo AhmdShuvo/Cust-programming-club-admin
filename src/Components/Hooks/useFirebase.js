@@ -44,11 +44,7 @@ const Login=(email,password)=>{
 }
      
 
-useEffect(()=>{
 
-  fetch(`http://localhost:9000/user/admin/${user.email}`).then(res=>res.json()).then(data=>setIsAdmin(data.admin))
-
-},[user.email])
  
 
 // Observer ///
@@ -70,6 +66,7 @@ useEffect(()=>{
       });
       return ()=>unSubscribe;
 },[])
+
 
 
 

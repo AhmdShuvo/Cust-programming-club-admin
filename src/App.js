@@ -17,6 +17,7 @@ import DashboardHome from './Components/Dashboard/DashboardHome/DashboardHome';
 import UpcommingEvents from './Components/Dashboard/Events/UpcommingEvents';
 import AuthProvider, { AuthContext } from './Components/Contexts/AuthProvider';
 import AdminRoute from './Components/AdminRoute/AdminRoute';
+import Pending from './Components/Dashboard/Pending/Pending';
 
 
 
@@ -33,18 +34,11 @@ const App = () => {
               element={
                 <AdminRoute>
                   {' '}
-                  <Dashboard />{' '}
-                </AdminRoute>
-              }
-            ></Route>
-              <Route path='/' 
-               element={
-                <AdminRoute>
-                  {' '}
                   <DashboardHome />{' '}
                 </AdminRoute>
               }
-             ></Route>
+            ></Route>
+         
            <Route path='makeAdmin' 
             element={
               <AdminRoute>
@@ -84,6 +78,15 @@ const App = () => {
             <AdminRoute>
               {' '}
               <Blogs />{' '}
+            </AdminRoute>
+          }
+           
+     />
+           <Route path='applications'
+           element={
+            <AdminRoute>
+              {' '}
+              <Pending />{' '}
             </AdminRoute>
           }
            

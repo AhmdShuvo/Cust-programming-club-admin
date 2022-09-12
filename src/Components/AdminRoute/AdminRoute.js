@@ -1,23 +1,30 @@
 import { Button } from '@mui/material';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Navigate ,useLocation} from 'react-router';
+import { Link } from 'react-router-dom';
 import useAuth from '../Hooks/useAuth';
 
 
 
 
 const AdminRoute = (props) => {
+    const [admin,setIsAdmin]=useState(false)
+    const {user,LogOUt}=useAuth()
         
+useEffect(()=>{
+
+      fetch(`https://desolate-headland-20264.herokuapp.com/user/admin/${user.email}`).then(res=>res.json()).then(data=>setIsAdmin(data.admin))
+    
+    },[user.email])
     const location = useLocation();
     const {children,...rest}=props
-    const {user,admin,LogOUt}=useAuth()
-    console.log(admin);
+
     if(user.email && admin){
         return children;
     }
-   return <> <h1 style={{color:"white"}}> {!admin&& <h1> Looks Like {user.email} not an admin </h1>}</h1>
+   return <> <h1 style={{color:"white"}}> {!admin&& <h1>  {user.email} not an admin </h1>}</h1>
    
-   <Button onClick={LogOUt}>Logout</Button>
+   {user.email?<Button onClick={LogOUt}>Logout</Button>:<Link to="/login" ><Button>Login</Button></Link>}
    </>;
                     
    

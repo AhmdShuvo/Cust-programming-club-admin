@@ -155,7 +155,7 @@ export default function DeleteEvents() {
     }
   };
   useEffect(() => {
-    fetch('https://desolate-headland-20264.herokuapp.com/currentevents').then(res => res.json()).then(data => setEvent(data))
+    fetch('https://desolate-headland-20264.herokuapp.com/currentevents').then(res => res.json()).then(data => setEvent(data.reverse()))
   }, [])
 events.map(event=><div>
     <h1>{event.title}</h1>

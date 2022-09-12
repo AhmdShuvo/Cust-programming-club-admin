@@ -24,10 +24,14 @@ const Notice = () => {
       method: "POST", headers: { "content-type": 'application/json' },
       body: JSON.stringify(notice)
 
-    }).then(res => res.json()).then(response => console.log(response))
+    }).then(res => res.json()).then(response => console.log(response)).catch((err)=>console.log(err.message)).finally(()=>{
+
+      alert("notice posted")
+      window.location.replace("/")
+    })
 
   }
-  console.log(notice);
+
   return (
     <Container>
 

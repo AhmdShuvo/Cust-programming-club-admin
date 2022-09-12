@@ -8,6 +8,8 @@ import TableRow from '@mui/material/TableRow';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Paper from '@mui/material/Paper';
 import { Button } from '@mui/material';
+import BeenhereIcon from '@mui/icons-material/Beenhere';
+import HowToRegIcon from '@mui/icons-material/HowToReg';
 
 function createData(name, calories, fat, carbs, protein) {
   return { name, calories, fat, carbs, protein };
@@ -15,48 +17,45 @@ function createData(name, calories, fat, carbs, protein) {
 
 
 
-export default function BasicTable() {
+export default function Pending() {
   const [rows,setRows]=React.useState([])
   const [success, setSuccess] = React.useState();
 
 
   React.useEffect(()=>{
-    fetch("https://desolate-headland-20264.herokuapp.com/blogs").then(res=>res.json()).then(data=>setRows(data))
+    fetch("http://localhost:9000/users").then(res=>res.json()).then(data=>setRows(data.reverse()))
 
   },[])
 
 
-  const handleDelete = id => {
+  const handleUpdate=id=>{ 
 
-    const proceed = window.confirm('Are you sure you want to delete?');
-    if (proceed === true) {
-      const url = `https://desolate-headland-20264.herokuapp.com/blog/${id}`;
-      fetch(url, {
-        method: 'DELETE',
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.deletedCount) {
+    fetch(`http://localhost:9000/user/${id}`,{
+        method:"PUT",
+          headers: { "content-type" :'application/json'},
 
-            setSuccess(true);
-            setTimeout(() => {
-              setSuccess(false);
-            }, 5000);
-            const remaining = rows.filter((event) => event._id !== id);
-            setRows(remaining);
-          }
-        });
-    }
-  };
+        body:JSON.stringify()
+    }).catch((err)=>console.log(err.message)).finally(()=>{
+        window.location.reload()
+        alert("Profile Updated")
+    })
 
+    
+   
+
+    
+  
+
+}
 
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Blog Heading</TableCell>
-            <TableCell align="right">Posted by</TableCell>
+            <TableCell>User name </TableCell>
+            <TableCell align="right">Email Address</TableCell>
+            <TableCell align="right">Status</TableCell>
             <TableCell align="right">Action</TableCell>
           
         
@@ -69,10 +68,14 @@ export default function BasicTable() {
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell component="th" scope="row">
-                {row.heading}
+                {row.displayName}
               </TableCell>
-              <TableCell align="right">{row.username}</TableCell>
-              <TableCell align="right"><Button onClick={()=>handleDelete(row._id)}><DeleteIcon/></Button></TableCell>
+              <TableCell align="right">{row.email}</TableCell>
+              <TableCell align="right" component="th" scope="row">
+                {row.status==="approved"? <BeenhereIcon></BeenhereIcon>:"Not approved"}
+              </TableCell>
+            
+            {row.status!=="approved"&&  <TableCell align="right"><Button onClick={()=>handleUpdate(row._id)}><HowToRegIcon /></Button></TableCell>}
            
             </TableRow>
           ))}
