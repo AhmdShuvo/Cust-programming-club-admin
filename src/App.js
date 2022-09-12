@@ -18,6 +18,7 @@ import UpcommingEvents from './Components/Dashboard/Events/UpcommingEvents';
 import AuthProvider, { AuthContext } from './Components/Contexts/AuthProvider';
 import AdminRoute from './Components/AdminRoute/AdminRoute';
 import Pending from './Components/Dashboard/Pending/Pending';
+import DeleteNotice from './Components/Dashboard/PostNotice/DeleteNotice';
 
 
 
@@ -100,7 +101,15 @@ const App = () => {
             </AdminRoute>
           }
           />
+                <Route path='notice/delete'
            
+           element={
+            <AdminRoute>
+              {' '}
+              <DeleteNotice />{' '}
+            </AdminRoute>
+          }
+          />
           </Route>
       <Route path='login' 
       
