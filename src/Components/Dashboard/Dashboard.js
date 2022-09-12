@@ -18,9 +18,8 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 
 import { Link, Outlet } from 'react-router-dom';
-import { AdminPanelSettingsRounded, DeleteOutlineRounded, HomeSharp, ManageAccountsOutlined, ManageHistory, PostAddOutlined } from '@mui/icons-material';
-import { Container } from '@mui/system';
-import DashboardHome from './DashboardHome/DashboardHome';
+import { AdminPanelSettingsRounded, DeleteOutlineRounded, HomeSharp, ManageHistory, PostAddOutlined } from '@mui/icons-material';
+
 import useAuth from '../Hooks/useAuth';
 
 
