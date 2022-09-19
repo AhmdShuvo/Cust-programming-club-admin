@@ -15,6 +15,10 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
+import SettingsIcon from '@mui/icons-material/Settings';
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import LogoutIcon from '@mui/icons-material/Logout';
 import ListItemText from '@mui/material/ListItemText';
 
 import { Link, Outlet } from 'react-router-dom';
@@ -195,9 +199,9 @@ export default function Dashboard() {
             <ListItem disablePadding>
               <ListItemButton>
                 <ListItemIcon>
-                  <ManageHistory />
+                  <SettingsIcon />
                 </ListItemIcon>
-                <ListItemText primary="applications" />
+                <ListItemText primary="Applications" />
               </ListItemButton>
             </ListItem>
           </Link>
@@ -205,7 +209,7 @@ export default function Dashboard() {
             <ListItem disablePadding>
               <ListItemButton>
                 <ListItemIcon>
-                  <ManageHistory />
+                  <MailOutlineIcon />
                 </ListItemIcon>
                 <ListItemText primary="Post a Notice" />
               </ListItemButton>
@@ -215,7 +219,7 @@ export default function Dashboard() {
             <ListItem disablePadding>
               <ListItemButton>
                 <ListItemIcon>
-                  <ManageHistory />
+                  <DeleteForeverIcon/>
                 </ListItemIcon>
                 <ListItemText primary="Delete Notice" />
               </ListItemButton>
@@ -225,7 +229,7 @@ export default function Dashboard() {
             <ListItem disablePadding>
               <ListItemButton onClick={LogOUt}>
                 <ListItemIcon>
-                  <ManageHistory />
+                  <LogoutIcon />
                 </ListItemIcon>
                 <ListItemText primary={user.email?"Logout":"Login"} />
               </ListItemButton>
