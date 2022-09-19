@@ -57,14 +57,14 @@ const App = () => {
             }
            
           ></Route>
-           <Route path='comingevents' 
+           {/* <Route path='comingevents' 
             element={
               <AdminRoute>
                 {' '}
                 <UpcommingEvents />{' '}
               </AdminRoute>
             }
-          ></Route>
+          ></Route> */}
            <Route path='deleteevents'
            element={
             <AdminRoute>
