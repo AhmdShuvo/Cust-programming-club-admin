@@ -19,14 +19,14 @@ export default function Pending() {
 
 
   React.useEffect(()=>{
-    fetch("http://localhost:9000/users").then(res=>res.json()).then(data=>setRows(data.reverse()))
+    fetch("https://desolate-headland-20264.herokuapp.com/users").then(res=>res.json()).then(data=>setRows(data.reverse()))
 
   },[])
 
 
   const handleUpdate=id=>{ 
 
-    fetch(`http://localhost:9000/user/${id}`,{
+    fetch(`https://desolate-headland-20264.herokuapp.com/user/${id}`,{
         method:"PUT",
           headers: { "content-type" :'application/json'},
 

@@ -22,9 +22,11 @@ useEffect(()=>{
     if(user.email && admin){
         return children;
     }
-   return <> <h1 style={{color:"white"}}> {!admin&& <h1>  {user.email} not an admin </h1>}</h1>
+   return <> <center><h1 style={{color:"white"}}> {!user.email && <h1> Not Logged In </h1>}</h1>
+ {!user.email&& <Link to='/login'><Button  variant="contained">Login Now</Button></Link>}
+   </center>
    
-   {user.email?<Button onClick={LogOUt}>Logout</Button>:<Link to="/login" ><Button>Login</Button></Link>}
+  {user.email&&  !admin&& <center><h1 style={{color:"white"}}>  {user.email}  Not An Admin</h1></center>}
    </>;
                     
    

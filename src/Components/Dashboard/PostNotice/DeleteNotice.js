@@ -40,7 +40,7 @@ export default function DeleteNotice() {
 
         const proceed = window.confirm('Are you sure you want to delete?');
         if (proceed === true) {
-          const url = `http://localhost:9000/notice/${id}`;
+          const url = `https://desolate-headland-20264.herokuapp.com/notice/${id}`;
           fetch(url, {
             method: 'DELETE',
           })
